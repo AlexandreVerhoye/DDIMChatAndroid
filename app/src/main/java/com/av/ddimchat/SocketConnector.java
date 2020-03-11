@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.location.Location;
 
 import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.engineio.client.transports.WebSocket;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Manager;
 import com.github.nkzawa.socketio.client.Socket;
@@ -39,7 +40,10 @@ public class SocketConnector
     
         try
         {
-            socket = IO.socket(url);
+            IO.Options opts = new IO.Options();
+            opts.transports = new String[]{WebSocket.NAME};
+
+            socket = IO.socket(url, opts);
             socket.on("connect", onConnect);
             socket.on("disconnect", onDisconnect);
             socket.on("new_message", onNewMessage);

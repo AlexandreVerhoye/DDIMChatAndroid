@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ChatActivity extends AppCompatActivity implements SocketListener {
 
-    private  static final String URL = "dev-indelebil.com:8080";
+    private  static final String URL = "dev-indelebil.com:8090";
     ProgressDialog dialog;
 
     @Override
@@ -27,8 +27,6 @@ public class ChatActivity extends AppCompatActivity implements SocketListener {
             e.printStackTrace();
             dialog.dismiss();
         }
-
-
     }
 
     @Override
